@@ -1,0 +1,14 @@
+{% if question %}
+    <h2> {{question.q_text}}</h2>
+
+    <P>Published on: <i> {{question.pub_date}} </i></P>
+
+    <p> Choices: </p>
+    
+        {% for c in question.choice_set.all %}
+            <option> {{c.choice}}</option>
+            {%endfor%}
+{%else%}
+    <p> Question not Available</p>
+
+{%endif%}

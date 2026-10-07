@@ -1,0 +1,11 @@
+
+{% if questions %}
+    <ul>
+        {% for q in questions %}
+            <li><a href="/polls/{{q.id}}/"> {{q.q_text}}</a></li>
+
+        {% endfor %}
+    </ul>
+{% else %}
+    <p> No questions Available</p>
+{% endif %}
