@@ -1,8 +1,8 @@
 
-{% if questions %}
+{% if latest_questions %}
     <ul>
-        {% for q in questions %}
-            <li><a href="/polls/{{q.id}}/"> {{q.q_text}}</a></li>
+        {% for q in latest_questions %}
+            <li><a href="{% url 'polls:detail' q.id %}"> {{q.q_text}}</a></li>
 
         {% endfor %}
     </ul>

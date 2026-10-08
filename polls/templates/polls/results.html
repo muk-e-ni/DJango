@@ -1,0 +1,8 @@
+
+<p> Here are the results for the question: {{question.q_text}} </p>
+<ul>
+    {% for c in question.choice_set.all %}
+        <li> {{c.choice}}: {{c.votes}} vote{{c.votes | pluralize:"s"}}</li>
+    {% endfor %}
+
+</ul> 
