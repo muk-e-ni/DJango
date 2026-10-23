@@ -6,7 +6,8 @@ from .models import Choice
 from django.http import Http404
 from django.urls import reverse 
 from django.views import generic
-
+import datetime
+from django.utils import timezone
 
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
@@ -19,11 +20,14 @@ class DashboardView(generic.ListView):
 
     
     def get_queryset(self):
-        return Q.objects.order_by("-pub_date")[:5]
+        return Q.objects.filter(pub_date__lte=timezone.now()).order_by("-pub_date")[:5]
     
 class DetailView(generic.DetailView):
     template_name = "polls/questiondetail.html"
     model = Q
+
+    def get_queryset(self):
+        return Q.objects.filter(pub_date__lte=timezone.now())
 
 def vote(request, q_ID):
     question = get_object_or_404(Q, pk=q_ID)

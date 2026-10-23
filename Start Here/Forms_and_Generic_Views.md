@@ -96,13 +96,14 @@ def results(request, question_id):
 ```
 ![Voting form](/images/voting_form.png)
 ![Vote results ](/images/vote_results_page.png)
+
 ## Generic Views 
-Generic views eliminate having redundunt views. For instance, the votes view is similar to the dashboard view. They are simillar in that they have a common basib web development pattern: Getting data from the db according to a given parameter in the URL, loading a template and returng the rendered template.
+Generic views eliminate having redundunt views. For instance, the votes view is similar to the dashboard view. They are simillar in that they have a common basic web development pattern: Getting data from the db based on a given URL parameter, loading a template and returng the rendered template.
 
 ### Modifying Everthing to Use Generic Views
 steps:
 1. Start with the URLconf
-2. Delete uneeded views 
+2. Delete un-needed views 
 3. Introduce new Generic views
 
 ```
@@ -121,7 +122,7 @@ urlpatterns = [
 ]
 ```
 What's changed?
-1. `<question_id> to <pk>`: Essential because the DeatilView() generic view will replace the detail() and result() views, and it expects the primary key value from the URL to be called pk.
+1. `<question_id> to <pk>`: Essential because the DetailView() generic view will replace the detail() and result() views, and it expects the primary key value from the URL to be called pk.
 
 
 Next up, ammending the views. 
