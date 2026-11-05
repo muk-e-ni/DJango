@@ -1,6 +1,6 @@
 # Customizing Admin Form 
 
-Django creates default admin forms automatically using different templates. To edit different parts of the form, a class with edits can be passed to the admin.site.register() to modify the defaults as the second argument. 
+Django creates default admin forms automatically using different templates. To edit different parts of a form, a class with edits can be passed to the admin.site.register() to modify the defaults added as a second argument. 
 
 ```
 from django.contrib import admin
@@ -16,7 +16,7 @@ admin.site.register(Question, QuestionAdmin)
 ```
 The code above makes pub_date come before the Question field. 
 
-## Spliting related fields with fieldsets 
+## Spliting Related Fields with Fieldsets 
 ```
 from django.contrib import admin
 
@@ -50,7 +50,7 @@ admin.site.register(Choice)
 
 ```
 
-The second way and the most effective way is by making a class for the choice and including as inline item on the created QuestionAdmin class. 
+The second way and the most effective way is by making a class for the choice and including it as an inline item on the created QuestionAdmin class. 
 
 ```
 from django.contrib import admin
@@ -91,7 +91,7 @@ class QuestionAdmin(admin.ModelAdmin):
     # ...
     list_display = ["question_text", "pub_date", "was_published_reccently"]
 ```
->>Note: Sorting by the output of an arbitrary method doesn't work. So the was_publish_method doesn't support ordering or sorting. 
+>>Note: Sorting by the output of an arbitrary method doesn't work. So the was_published_recently method doesn't support ordering or sorting. 
 
 Each line of the header contains a string representation of the output. But can be altered using the display decorator on that method. Here's an example.
 
@@ -112,7 +112,7 @@ class Question(models.Model):
 
 ```
 
-In addition tot the list_display, the list_filter can also be used to add a filter side bar. A search field can also be included using search_fields. 
+In addition to the list_display, the list_filter can also be used to add a filter side bar. A search field can also be included using search_fields. 
 
 ## Customizing the Admin Look and Feel 
 
